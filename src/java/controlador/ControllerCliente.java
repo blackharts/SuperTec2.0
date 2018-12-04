@@ -5,7 +5,9 @@
  */
 package controlador;
 
+import Model.Cliente;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +22,18 @@ public class ControllerCliente {
     @RequestMapping(value = "/cliente", method = RequestMethod.GET)
     public String demo(ModelMap map) {
         map.addAttribute("helloAgain", "Hello (Again) Spring from Netbeans!!");
-        return "cliente";
+        return "registroCliente";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String procesaForm(Cliente cli) {
+        
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String preparaForm(Model modelo) {
+        modelo.addAttribute("cli", new Cliente());
+        return "registroCliente";
     }
 
 }

@@ -23,19 +23,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ControllerRegion {
 
-    @Autowired
-    private Region reg;
-
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/region",method = RequestMethod.GET)
     public String index(ModelMap modelMap) {
         modelMap.put("region", new Region());
         return "region";
     }
-
-    @RequestMapping(value = "save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("region") Region reg, ModelMap modelMap) {
-        Region newProduct = Nombre.create(reg);
-        modelMap.put("newProduct", newProduct);
-        return "region";
-    
 }
+
+  

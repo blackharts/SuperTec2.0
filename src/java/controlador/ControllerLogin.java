@@ -22,5 +22,4 @@ public class ControllerLogin {
         map.addAttribute("helloAgain", "Hello (Again) Spring from Netbeans!!");
         return "login";
     }
-
 }
