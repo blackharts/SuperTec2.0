@@ -36,7 +36,7 @@
             <h1>Persons List</h1>
             [<a href="edit.jsp">Nuevo</a>]
 
-            
+
             <table>
                 <thead>
                     <tr>
@@ -52,9 +52,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                   
-               
-            </tbody>
+                    <%
+                        List<Comuna> comuna = (List<Comuna>) request.getAttribute("comuna");
+
+                        for (Comuna r : comuna) {
+                    %>
+                <td value="<%out.write(r.getId().toString());%>"></td><td value="<% out.write(r.getNombre());%>"></td>
+                    <%
+                        }
+                    %>
+
+                </tbody>
             </table>
         </div>
     </section>

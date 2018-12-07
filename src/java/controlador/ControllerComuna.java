@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ControllerComuna {
 
-@RequestMapping(value = "/comuna", method = RequestMethod.GET)
+    @RequestMapping(value = "/comuna", method = RequestMethod.GET)
     public String showCombo(Model model) {
-        List<Region> region ;
+        List<Region> region;
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SuperTec2.0PU");
         RegionJpaController cl = new RegionJpaController(emf);
@@ -34,13 +34,12 @@ public class ControllerComuna {
 
         return "comuna";
     }
-    
 
     @RequestMapping(value = "/comuna_save", method = RequestMethod.POST)
     public String handleSave(
             @RequestParam("nombre") String nombre,
             @RequestParam("codigo") String codigo,
-          //  @RequestParam("region") Region region,
+            @RequestParam("regiones") Region region,
             Model model) throws Exception {
 
         if (nombre.trim().equals("")) {
@@ -50,7 +49,7 @@ public class ControllerComuna {
             Comuna c = new Comuna();
             c.setCodigo(codigo);
             c.setNombre(nombre);
-           // c.setRegion(region);
+            c.setRegion(region);
 
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("SuperTec2.0PU");
             ComunaJpaController cl = new ComunaJpaController(emf);
@@ -63,8 +62,15 @@ public class ControllerComuna {
     }
 
     @RequestMapping(value = "/comuna/lista", method = RequestMethod.GET)
-    public String showLista() {
+    public String showLista(Model model) {
+        List<Comuna> comuna;
 
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("SuperTec2.0PU");
+        ComunaJpaController cl = new ComunaJpaController(emf);
+
+        comuna = cl.findComunaEntities();
+
+        model.addAttribute("comuna", comuna);
         return "listaComuna";
     }
 }
