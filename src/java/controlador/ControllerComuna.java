@@ -5,7 +5,6 @@
  */
 package controlador;
 
-import ControladorJpa.ComunaJpaController;
 import Model.Comuna;
 import java.time.LocalDateTime;
 import javax.persistence.EntityManager;
