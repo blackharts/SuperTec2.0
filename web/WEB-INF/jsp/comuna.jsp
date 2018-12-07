@@ -57,20 +57,20 @@
                                 </div>
                             </div>
                         </div>
-                       <!-- <div class="row">
+                       <div class="row">
                             <div class="col-md-5 mb-3">
                                 <label for="country">Region</label>
                                 <%
-                                    //List<Region> regione = (List<Region>) request.getAttribute("regione");
+                                    List<Region> region = (List<Region>) request.getAttribute("region");
                                 %>
 
-                                <select class="custom-select d-block w-100" id="country" required>
+                                <select class="custom-select d-block w-100" id="country" name="regiones" required>
                                     <%
-                                        // for (Region r : regione) {
+                                         for (Region r : region) {
                                     %>
-                                    <option value="<%// out.write(r.getId().toString());%>"><%// out.write(r.getNombre());%></option>
+                                    <option value="<%out.write(r.getId().toString());%>"><% out.write(r.getNombre());%></option>
                                     <%
-                                         // }
+                                         }
 %>
                                 </select>
                                 <div class="invalid-feedback">
@@ -78,7 +78,7 @@
                                 </div>
                             </div> 
 
-                        </div>-->
+                        </div>
                         <hr class="mb-4">
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
                     </form>
