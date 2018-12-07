@@ -3,7 +3,7 @@
     Created on : 06-12-2018, 22:55:26
     Author     : alfon
 --%>
-<%@page import="com.supertec.clases.Region"%>
+<%@page import="Model.Region"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
@@ -40,24 +40,24 @@
             <div class="row">
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3">Datos a Ingresar</h4>
-                    <sf:form action="/comunasave" method="POST" class="needs-validation" commandName="comuna">
+                    <form action="comuna_save" method="POST" class="needs-validation" >
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">Nombre de Comuna</label>
-                                <sf:input path="nombre" type="text" class="form-control"  placeholder="Ej:Puerto Montt" />
+                                <input name="nombre" type="text" class="form-control"  placeholder="Ej:Puerto Montt" />
                                 <div class="invalid-feedback">
                                     Nece.
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="lastName">Codigo de Comuna</label>
-                                <sf:input type="text" class="form-control" path="codigo" placeholder="Ej: 10131" />
+                                <input type="text" class="form-control" name="codigo" placeholder="Ej: 10131" />
                                 <div class="invalid-feedback">
                                     Ingrese un valor para el Codigo
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                       <!-- <div class="row">
                             <div class="col-md-5 mb-3">
                                 <label for="country">Region</label>
                                 <%
@@ -74,14 +74,14 @@
 %>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Please select a valid country.
+                                    Please select a valid Region
                                 </div>
                             </div> 
 
-                        </div>
+                        </div>-->
                         <hr class="mb-4">
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
-                    </sf:form>
+                    </form>
                 </div>
             </div>
 
