@@ -28,7 +28,7 @@
 
         <div class="container">
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+
                 <h2>Registrar Cliente</h2>
             </div>
 
@@ -37,6 +37,9 @@
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3">Ingrese Sus Datos</h4>
                     <sf:form action="cliente_save" commandName="cliente" method="POST">
+
+                    <sf:form class="needs-validation" action="/cliente_save" commandName="cliente" method="POST">
+
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">Ingrese Nombre Completo</label>
@@ -52,6 +55,7 @@
                                     Valid Rut is required.
                                 </div>
                             </div>
+
                               <div class="col-md-6 mb-3">
                                 <label for="lastName">Ingrese telefono</label>
                                 <sf:input type="text" class="form-control" path="telefono" placeholder="111111111"/>
@@ -62,6 +66,8 @@
                         </div>
 
 
+
+                        </div>
 
                         <div class="mb-3">
                             <label for="username" data-feather="users">Ingrese su usuario</label>
@@ -88,15 +94,25 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="address2">Ingrese una Contraseña </label>
+                            <label for="address2">Ingrese una ContraseÃ±a </label>
                             <sf:input type="text" class="form-control" path="contrasenia"/>
                         </div>
                         <div class="mb-3">
+
                             <label for="address2">Ingrese Fecha de Nacimiento </label>
                             <sf:input type="date" class="form-control" path="fechaNacimiento"/>
                         </div>
                         <hr class="mb-4">
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Registrarse</button>
+
+                            <!--<label for="address2">Ingrese Fecha de Nacimiento </label>
+                            <//sf:input type="date" class="form-control" path="fechaNacimiento"/>
+                        </div>-->
+                            <hr class="mb-4">
+
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Registrarse</button>
+                        </div>
+
                     </sf:form>
                 </div>
             </div>
@@ -122,3 +138,29 @@
 
     </body>
 </html>
+
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict';
+
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+    </body>
+</html>
+

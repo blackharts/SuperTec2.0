@@ -22,19 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-/**
- *
- * @author yo
- */
 @Controller
 public class ControllerCliente {
-
-   @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-        sdf.setLenient(true);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-    }
 
     @RequestMapping("/cliente")
     public String showCliente(Model model, @ModelAttribute("result") String result) {
@@ -60,23 +49,24 @@ public class ControllerCliente {
             @RequestParam("correo") String correo,
             @RequestParam("telefono") String telefono,
             @RequestParam("contrasenia") String contrasenia,
-           // @RequestParam("fechaNacimiento") Date fechaNacimiento,
+            //@RequestParam("fechaNacimiento") Date fechaNacimiento,
             Model model) throws Exception {
 
         if (nombre.trim().equals("")) {
             return "error500";
         } else {
 
+          
             Cliente cli = new Cliente();
             cli.setNombre(nombre);
             cli.setRut(rut);
             cli.setUsuario(usuario);
             cli.setCorreo(correo);
             cli.setContrasenia(contrasenia);
-           // cli.setFechaNacimiento(fechaNacimiento);
+            //cli.setFechaNacimiento(fechaNacimiento);
             cli.setTelefono(telefono);
 
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("SuperTec2.0PU");
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.supertec_Supertec_war_1.0-SNAPSHOTPU");
             ClienteJpaController cl = new ClienteJpaController(emf);
 
             cl.create(cli);
