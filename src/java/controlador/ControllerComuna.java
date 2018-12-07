@@ -6,8 +6,10 @@
 package controlador;
 
 import JpaController.ComunaJpaController;
+import JpaController.RegionJpaController;
 import Model.Comuna;
 import Model.Region;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.springframework.stereotype.Controller;
@@ -19,13 +21,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ControllerComuna {
 
+@RequestMapping(value = "/comuna", method = RequestMethod.GET)
+    public String showCombo(Model model) {
+        List<Region> region ;
 
-    @RequestMapping("/comuna")
-    public String showComuna() {
-        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("SuperTec2.0PU");
+        RegionJpaController cl = new RegionJpaController(emf);
+
+        region = cl.findRegionEntities();
+
+        model.addAttribute("region", region);
+
         return "comuna";
     }
-
     
 
     @RequestMapping(value = "/comuna_save", method = RequestMethod.POST)
