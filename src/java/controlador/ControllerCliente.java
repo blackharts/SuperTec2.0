@@ -26,20 +26,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ControllerCliente {
 
     @RequestMapping("/cliente")
-    public String showCliente(Model model, @ModelAttribute("result") String result) {
-        Cliente cliente = new Cliente();
-        model.addAttribute("cliente", cliente);
-        model.addAttribute("result", result);
+    public String showCliente() {
+       
         return "cliente";
     }
 
-    @RequestMapping(value = "/cliente/save", method = RequestMethod.POST)
-    public String handleCliente(@ModelAttribute("cliente") Cliente clienteForm, Model model,
-            RedirectAttributes red) {
-        red.addFlashAttribute("result", "Se ha registrado Exitosamente!");
-
-        return "redirect:/index";
-    }
+  
 
     @RequestMapping(value = "/cliente_save", method = RequestMethod.POST)
     public String handleSave(
@@ -66,13 +58,13 @@ public class ControllerCliente {
             //cli.setFechaNacimiento(fechaNacimiento);
             cli.setTelefono(telefono);
 
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.supertec_Supertec_war_1.0-SNAPSHOTPU");
+              EntityManagerFactory emf = Persistence.createEntityManagerFactory("SuperTec2.0PU");
             ClienteJpaController cl = new ClienteJpaController(emf);
 
             cl.create(cli);
 
             model.addAttribute("cliente", cl);
-            return "index";
+            return "admin";
         }
 
     }

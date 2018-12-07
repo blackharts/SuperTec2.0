@@ -28,9 +28,7 @@
 
         <div class="container">
             <div class="py-5 text-center">
-
                 <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-
                 <h2>Registrar Cliente</h2>
             </div>
 
@@ -38,41 +36,30 @@
 
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3">Ingrese Sus Datos</h4>
-
-                    <sf:form action="cliente_save" commandName="cliente" method="POST">
-
-                    <sf:form class="needs-validation" action="/cliente_save" commandName="cliente" method="POST">
-
+                    <form class="needs-validation" action="cliente_save" method="post">
+                     
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">Ingrese Nombre Completo</label>
-                                <sf:input type="text" class="form-control" path="nombre" />
+                                <input type="text" class="form-control" name="nombre" />
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="lastName">Ingrese Rut</label>
-                                <sf:input type="text" class="form-control" path="rut" placeholder="11.111.111-k"/>
+                                <input type="text" class="form-control" name="rut" placeholder="11.111.111-k"/>
                                 <div class="invalid-feedback">
                                     Valid Rut is required.
                                 </div>
                             </div>
-                              <div class="col-md-6 mb-3">
-                                <label for="lastName">Ingrese telefono</label>
-                                <sf:input type="text" class="form-control" path="telefono" placeholder="111111111"/>
-                                <div class="invalid-feedback">
-                                    Valid Rut is required.
-                                </div>
-                            </div>
-                        </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="username" data-feather="users">Ingrese su usuario</label>
                             <div class="input-group">
-
-                                <sf:input type="text" class="form-control" path="usuario" placeholder="User" />
+                              
+                                <input type="text" class="form-control" name="usuario" placeholder="User" />
                                 <div class="invalid-feedback" style="width: 100%;">
                                     Your username is required.
                                 </div>
@@ -85,33 +72,28 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
-                                <sf:input type="email" class="form-control" path="correo" placeholder="you@example.com"/>
+                                <input type="email" class="form-control" name="correo" placeholder="you@example.com"/>
                                 <div class="invalid-feedback">
                                     Please enter a valid email address.
                                 </div>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="address2">Ingrese una ContraseÃ±a </label>
-                            <sf:input type="text" class="form-control" path="contrasenia"/>
+                            <label for="address2">Ingrese una Contraseña </label>
+                            <input type="password" class="form-control" name="contrasenia"/>
                         </div>
-                        <div class="mb-3">
-
+                         <div class="mb-3">
+                            <label for="address2">Ingrese una Telefono </label>
+                            <input type="text" class="form-control" name="telefono"/>
+                        </div>
+                        <!--<div class="mb-3">
                             <label for="address2">Ingrese Fecha de Nacimiento </label>
-                            <sf:input type="date" class="form-control" path="fechaNacimiento"/>
-                        </div>
-                        <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Registrarse</button>
-
-                            <!--<label for="address2">Ingrese Fecha de Nacimiento </label>
                             <//sf:input type="date" class="form-control" path="fechaNacimiento"/>
                         </div>-->
-                            <hr class="mb-4">
-
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Registrarse</button>
-                        </div>
-
-                    </sf:form>
+                        <hr class="mb-4">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Registrarse</button>
+                    </form>
+                      
                 </div>
             </div>
 
@@ -133,11 +115,6 @@
         <script src="../../assets/js/vendor/popper.min.js"></script>
         <script src="../../dist/js/bootstrap.min.js"></script>
         <script src="../../assets/js/vendor/holder.min.js"></script>
-
-
-    </body>
-</html>
-
         <script>
             // Example starter JavaScript for disabling form submissions if there are invalid fields
             (function () {
