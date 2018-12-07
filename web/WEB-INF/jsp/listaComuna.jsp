@@ -4,11 +4,11 @@
     Author     : alfon
 --%>
 
-<%@page import="com.supertec.JpaController.ComunaJpaController"%>
+<%@page import="JpaController.ComunaJpaController"%>
 <%@page import="javax.persistence.Persistence"%>
 <%@page import="javax.persistence.EntityManager"%>
 <%@page import="javax.persistence.EntityManagerFactory"%>
-<%@page import="com.supertec.clases.Comuna"%>
+<%@page import="Model.Comuna"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
