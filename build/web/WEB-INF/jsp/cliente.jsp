@@ -29,6 +29,8 @@
         <div class="container">
             <div class="py-5 text-center">
 
+                <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+
                 <h2>Registrar Cliente</h2>
             </div>
 
@@ -36,6 +38,7 @@
 
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3">Ingrese Sus Datos</h4>
+
                     <sf:form action="cliente_save" commandName="cliente" method="POST">
 
                     <sf:form class="needs-validation" action="/cliente_save" commandName="cliente" method="POST">
@@ -55,7 +58,6 @@
                                     Valid Rut is required.
                                 </div>
                             </div>
-
                               <div class="col-md-6 mb-3">
                                 <label for="lastName">Ingrese telefono</label>
                                 <sf:input type="text" class="form-control" path="telefono" placeholder="111111111"/>
@@ -64,9 +66,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                         </div>
 
                         <div class="mb-3">
@@ -92,7 +91,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <label for="address2">Ingrese una Contraseña </label>
                             <sf:input type="text" class="form-control" path="contrasenia"/>
@@ -135,6 +133,7 @@
         <script src="../../assets/js/vendor/popper.min.js"></script>
         <script src="../../dist/js/bootstrap.min.js"></script>
         <script src="../../assets/js/vendor/holder.min.js"></script>
+
 
     </body>
 </html>

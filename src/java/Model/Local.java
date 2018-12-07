@@ -124,5 +124,7 @@ public class Local implements Serializable {
     public String toString() {
         return "Model.Local[ id=" + id + " ]";
     }
+
+    
     
 }
